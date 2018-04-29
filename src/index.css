@@ -1,4 +1,6 @@
-#H2::before,
+#H2::before {
+  content: "k:|";
+}
 #H2::after {
   content: "|";
 }

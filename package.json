@@ -5,11 +5,8 @@
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
-    "anujs": "1.3.3",
     "inferno": "5.0.4",
     "inferno-create-element": "5.0.4",
-    "luy": "1.1.4",
-    "preact": "8.2.7",
     "react": "15.6.2",
     "react-dom": "15.6.2"
   },
