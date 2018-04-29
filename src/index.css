@@ -1,0 +1,4 @@
+#H2::before,
+#H2::after {
+  content: "|";
+}
