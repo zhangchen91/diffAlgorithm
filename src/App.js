@@ -22,8 +22,13 @@ export default class App extends Component {
     return (
       <div>
         <button onClick={this.handleChange}>change</button>
-        <h1 id="H1">
-          {list.map((it, i) => <Span key={i} name={it.toLowerCase()} />)}
+        <h1>
+          r:{list.map((it, i) => (
+            <Span key={Math.random()} name={it.toLowerCase()} />
+          ))}
+        </h1>
+        <h1>
+          i:{list.map((it, i) => <Span key={i} name={it.toLowerCase()} />)}
         </h1>
         <h1 id="H2">
           {list.map((it, i) => <Span key={it} name={it.toLowerCase()} />)}
