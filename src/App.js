@@ -1,39 +1,33 @@
-/** @jsx h */
-import { Component, createElement as h } from "./dependence";
-import Span from "./Span";
-import addFlag from "./addFlag.js";
+import { Component } from "./dependence";
+import addFlag from "./addFlag";
+import {zhang, chen, renderApp} from "./common";
+import Span from "./Span.js";
+
 export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      list: "zhangcHeN".split("")
+      name: [zhang, chen],
+      reverseName: [chen, zhang]
     };
   }
   handleChange = () => {
+    const {name, reverseName} = this.state
+    name.reverse()
+    reverseName.reverse()
     this.setState({
-      list: "cHeNzhang".split("")
+      name,
+      reverseName
     });
   };
   componentDidMount() {
-    addFlag("#H2");
+    addFlag("#H2", 5);
+    addFlag("#H3", 4);
   }
   render() {
-    const { list } = this.state;
-    return (
-      <div>
-        <button onClick={this.handleChange}>change</button>
-        <h1>
-          r:{list.map((it, i) => (
-            <Span key={Math.random()} name={it.toLowerCase()} />
-          ))}
-        </h1>
-        <h1>
-          i:{list.map((it, i) => <Span key={i} name={it.toLowerCase()} />)}
-        </h1>
-        <h1 id="H2">
-          {list.map((it, i) => <Span key={it} name={it.toLowerCase()} />)}
-        </h1>
-      </div>
-    );
+    let { name, reverseName } = this.state;
+    name = name.join("").split("");
+    reverseName = reverseName.join("").split("");
+    return renderApp(name, reverseName, Span, this.handleChange);
   }
 }

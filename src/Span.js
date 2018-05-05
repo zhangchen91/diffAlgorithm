@@ -1,5 +1,5 @@
-/** @jsx h */
-import { Component, createElement as h } from "./dependence";
+import { Component } from "./dependence";
+import {renderSpan} from "./common";
 
 export default class Span extends Component {
   constructor(props) {
@@ -26,15 +26,6 @@ export default class Span extends Component {
   render() {
     const { name } = this.props;
     const { old } = this.state;
-    if (!old) {
-      return <span style={{ color: "#000" }}>{name}</span>;
-    } else {
-      return (
-        <span style={{ color: "red" }}>
-          <span style={{ textDecoration: "line-through" }}>{old}</span>
-          <span style={{ color: "green" }}>{name}</span>
-        </span>
-      );
-    }
+    return renderSpan(name, old)
   }
 }
