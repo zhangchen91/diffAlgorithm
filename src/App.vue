@@ -1,12 +1,11 @@
 <script>
-import addFlag from "./addFlag.js";
-import {zhang, chen, renderApp} from "./common";
+import {first, last, mounted, renderApp} from "./common";
 import Span from "./Span.vue";
 
 export default {
   name: 'App',
   data: () => ({
-    name: [zhang, chen]
+    name: [first, last]
   }),
   computed: {
     reverseName() {
@@ -14,19 +13,22 @@ export default {
     }
   },
   methods: {
-    handleChange() {
+    letter() {
+      const {name} = this
+      this.name = [name[0], name[1].split("").reverse().join("")].reverse();
+    },
+    word() {
       this.name.reverse();
+    },
+    reset() {
+      this.name = [first, last];
+      setTimeout(mounted, 100);
     }
   },
-  mounted() {
-    addFlag("#H2", 5);
-    addFlag("#H3", 4);
-  },
+  mounted: mounted,
   render() {
-    let { name, reverseName } = this;
-    name = name.join("").split("");
-    reverseName = reverseName.join("").split("");
-    return renderApp(name, reverseName, Span, this.handleChange)
+    const { name, reverseName, letter, word, reset} = this;
+    return renderApp(name, reverseName, Span, letter, word, reset);
   }
 }
 </script>

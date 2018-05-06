@@ -1,12 +1,16 @@
+body {
+  margin: 0;
+}
+#H1, #H2 {
+  color: red;
+}
+#H1::before,
 #H2::before {
+  color: #000;
   content: "k:|";
 }
+#H1::after,
 #H2::after {
-  content: "|";
-}
-#H3::before {
-  content: "k:|";
-}
-#H3::after {
+  color: #000;
   content: "|";
 }

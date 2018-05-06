@@ -1,33 +1,40 @@
 import { Component } from "./dependence";
-import addFlag from "./addFlag";
-import {zhang, chen, renderApp} from "./common";
+import {first, last, mounted, renderApp} from "./common";
 import Span from "./Span.js";
 
 export default class App extends Component {
   constructor() {
     super();
+    let name = [first, last]
     this.state = {
-      name: [zhang, chen],
-      reverseName: [chen, zhang]
+      name,
+      reverseName: [...name].reverse()
     };
   }
-  handleChange = () => {
-    const {name, reverseName} = this.state
-    name.reverse()
-    reverseName.reverse()
+  letter = () => {
+    const {name} = this.state
+    const letter_reverse = [name[0], name[1].split("").reverse().join("")];
+    this.setState({
+      name: [...letter_reverse].reverse(),
+      reverseName: letter_reverse
+    });
+  }
+  word = () => {
+    const {name: reverseName, reverseName: name} = this.state
+    this.setState({name, reverseName});
+  }
+  reset = () => {
+    let name = [first, last]
     this.setState({
       name,
-      reverseName
+      reverseName: [...name].reverse()
     });
-  };
-  componentDidMount() {
-    addFlag("#H2", 5);
-    addFlag("#H3", 4);
+    setTimeout(mounted, 100);
   }
+  componentDidMount = mounted
   render() {
     let { name, reverseName } = this.state;
-    name = name.join("").split("");
-    reverseName = reverseName.join("").split("");
-    return renderApp(name, reverseName, Span, this.handleChange);
+    const {letter, word, reset} = this;
+    return renderApp(name, reverseName, Span, letter, word, reset);
   }
 }

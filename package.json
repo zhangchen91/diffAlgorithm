@@ -4,12 +4,14 @@
   "author": "zhangchen <zhangchen01@zhuanzhuan.com>",
   "private": true,
   "dependencies": {
-    "vue": "^2.5.2",
     "inferno": "5.0.4",
     "inferno-create-element": "5.0.4",
+    "luy": "^1.1.4",
+    "preact": "^8.2.9",
     "react": "15.6.2",
     "react-dom": "15.6.2",
-    "react-scripts": "1.1.4"
+    "react-scripts": "1.1.4",
+    "vue": "^2.5.2"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
