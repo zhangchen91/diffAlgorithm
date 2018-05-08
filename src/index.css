@@ -7,10 +7,5 @@ body {
 #H1::before,
 #H2::before {
   color: #000;
-  content: "k:|";
-}
-#H1::after,
-#H2::after {
-  color: #000;
-  content: "|";
+  content: "k:";
 }
