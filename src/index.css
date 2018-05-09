@@ -1,11 +1,38 @@
 body {
   margin: 0;
 }
-#H1, #H2 {
-  color: red;
-}
 #H1::before,
+#H2::before,
+#H3::before,
+#H4::before,
+.hold::before {
+  color: #999;
+  font-size: .75rem;
+}
+.small {
+  font-size: .75rem;
+}
+#H1::before {
+  content: "Index Key :";
+}
 #H2::before {
-  color: #000;
-  content: "k:";
+  content: "Random Key:";
+}
+#H3::before {
+  content: "Named Key :";
+}
+#H4::before {
+  content: "Named Key R:";
+}
+.hold {
+  opacity: .3;
+}
+.prev::before {
+  content: "Prev Hold :";
+}
+h2{
+  opacity: 0;
+}
+h2.visible{
+  opacity: 1;
 }

@@ -1,25 +1,28 @@
 <script>
 import {renderSpan} from "./common";
+
+let once
 export default {
   name: 'Span',
   props: {
-    name: String
+    letter: String
   },
   data: () => ({
     old: ""
   }),
   mounted() {
-    console.log("Mount", this.name);
+    once = true
+    console.log("Mount", this.letter);
   },
   watch: {
-    name(val, oldV) {
+    letter(val, oldV) {
       this.old = oldV;
       console.log(`Re-render from ${oldV} to ${val}`);
     }
   },
   render() {
-    const { name, old } = this;
-    return renderSpan(name, old)
+    const { letter, old } = this;
+    return renderSpan(letter, once, old)
   }
 }
 </script>

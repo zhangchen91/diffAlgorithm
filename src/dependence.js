@@ -8,13 +8,12 @@
  *
  **/
 
-// import Vue from "vue"
-// const vue = new Vue({})
-// const createElement = vue.$createElement
+import Vue from "vue"
+const vue = new Vue({})
+const createElement = vue.$createElement
 
-
-import { Component, render } from "inferno";
-import { createElement } from "inferno-create-element";
+// import { Component, render } from "inferno";
+// import { createElement } from "inferno-create-element";
 
 // import { Component, createElement, render } from "preact";
 

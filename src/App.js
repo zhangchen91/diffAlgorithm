@@ -23,18 +23,10 @@ export default class App extends Component {
     const {name: reverseName, reverseName: name} = this.state
     this.setState({name, reverseName});
   }
-  reset = () => {
-    let name = [first, last]
-    this.setState({
-      name,
-      reverseName: [...name].reverse()
-    });
-    setTimeout(mounted, 100);
-  }
   componentDidMount = mounted
   render() {
     let { name, reverseName } = this.state;
-    const {letter, word, reset} = this;
-    return renderApp(name, reverseName, Span, letter, word, reset);
+    const {letter, word} = this;
+    return renderApp(name, reverseName, Span, letter, word);
   }
 }

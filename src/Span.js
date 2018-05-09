@@ -1,31 +1,35 @@
 import { Component } from "./dependence";
 import {renderSpan} from "./common";
 
+let once
 export default class Span extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
+  componentDidMount() {
+    once = true
+  }
   componentWillMount() {
-    console.log("Mount", this.props.name);
+    console.log("Mount", this.props.letter);
   }
   componentWillReceiveProps(nextProps) {
-    if (this.props.name !== nextProps.name) {
+    if (this.props.letter !== nextProps.letter) {
       this.setState({
-        old: this.props.name
+        old: this.props.letter
       });
-      console.log(`Re-render from ${this.props.name} to ${nextProps.name}`);
+      console.log(`Re-render from ${this.props.letter} to ${nextProps.letter}`);
     }
   }
   shouldComponentUpdate(nextProps) {
-    if (this.props.name === nextProps.name) {
-      console.log("Reuse", this.props.name);
+    if (this.props.letter === nextProps.letter) {
+      console.log("Reuse", this.props.letter);
       return false;
     } else return true;
   }
   render() {
-    const { name } = this.props;
+    const { letter } = this.props;
     const { old } = this.state;
-    return renderSpan(name, old)
+    return renderSpan(letter, once, old)
   }
 }

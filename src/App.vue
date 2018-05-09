@@ -19,16 +19,12 @@ export default {
     },
     word() {
       this.name.reverse();
-    },
-    reset() {
-      this.name = [first, last];
-      setTimeout(mounted, 100);
     }
   },
   mounted: mounted,
   render() {
-    const { name, reverseName, letter, word, reset} = this;
-    return renderApp(name, reverseName, Span, letter, word, reset);
+    const { name, reverseName, letter, word} = this;
+    return renderApp(name, reverseName, Span, letter, word);
   }
 }
 </script>
